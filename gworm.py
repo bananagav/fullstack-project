@@ -13,7 +13,7 @@ def Randomizer():
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
     Length = random.randint(1,11)
     for i in range(Length):
-        name += random.choice
+        name += str(random.choice)
     return name
 
 def Recreate(Fi_Name,Folder):
