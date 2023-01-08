@@ -1,4 +1,7 @@
 # fullstack-project
-Fullstack Academy Final project
+Fullstack Academy Capstone project
 
-Creating a worm to use in lab to spread across a network!
+Creating a worm to use in Linux lab to replicate in the system, and create persistence on the machine!
+
+
+
